@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+ 
+
   // title = 'registrationapp';
 
 
@@ -19,5 +22,12 @@ export class AppComponent {
   // isVisible:Boolean = false;
 
   // sendData:string = 'welcom to the parent component';
+
+
+  postTitle!: string ;
+  postDetails!: string;
+  imageURL!:String;
+  postURL!:string;
+  addBackground!: boolean ;
 
 }

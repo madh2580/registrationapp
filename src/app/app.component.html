@@ -3,10 +3,10 @@
 It is often used with structural directives like *ngIf , *ngFor , and *ngSwitch.
 . We use the ng-container Group the div\ elements together without adding an HTML tag. -->
 
-<ng-container *ngFor="let num of [1,2,3,4,5,5,6,67,7,8,5,3]">
+<!-- <ng-container *ngFor="let num of [1,2,3,4,5,5,6,67,7,8,5,3]">
   {{num}}
 
-</ng-container>
+</ng-container> -->
 
 
 <!-- One of the main uses for <ng-template> is to hold template content that will be used by Structural directives.
@@ -14,18 +14,39 @@ It is often used with structural directives like *ngIf , *ngFor , and *ngSwitch.
   <!-- what ever code we are written in ng-tamplate , that code will not visible in the dom. -->
   <!-- we can able display the data with the help of template refefence variable -->
 
- <div *ngIf="isVisible; else tem">
+ <!-- <div *ngIf="isVisible; else tem">
   content visible
  </div>
   <ng-template #tem>
     hugyujhgyjhfyufvhgukjgukgvthfughgukhgyjuftgyufdtyf
-  </ng-template>
+  </ng-template> -->
 
   <!-- ng-content -->
   <!-- 1. we can able to send the data from parent to child -->
-  <app-head>
+  <!-- <app-head>
     <div>{{sendData}}</div>
-  </app-head>
+  </app-head> -->
 
 
-  
+<div class="form-area">
+  <h1>Post form</h1> 
+  <br><br>
+  <input type="text" placeholder="Post Title" [(ngModel)] = "postTitle">
+   <br><br>
+  <textarea cols="20" rows="10" placeholder="Post Detials" [(ngModel)] = "postDetails"></textarea>
+   <br><br>
+  <input type="text" placeholder="Post Image URL" [(ngModel)] = "imageURL">
+   <br><br>
+  <input type="text" placeholder="Post URL" [(ngModel)] = "postURL"> 
+  <br><br>
+  <input type="checkbox" [(ngModel)] = "addBackground"> Add Background  
+  <br><br>
+ </div> 
+ <div class="preview-area">
+  <img [src]="imageURL" alt="" height="100" width="100">
+  <h1><span [class.add-background]="addBackground">{{ postTitle }}</span> </h1>
+  <p> {{ postDetails}} </p>
+  <a [href]="postURL" target="_blank" [style.display]=" postURL ? 'block' : 'none' "> More Details </a>
+
+
+ </div>
