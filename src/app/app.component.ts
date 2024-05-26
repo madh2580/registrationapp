@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'registrationapp';
+  // title = 'registrationapp';
+
+
+  // registration: boolean = true;
+
+  // m1="number 1";
+  // m2="number 2";
+  // m1: string = 'number1';
+  //  m2:60;
+
+  // isVisible:Boolean = false;
+
+  // sendData:string = 'welcom to the parent component';
+
 }
