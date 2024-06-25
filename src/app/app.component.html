@@ -28,7 +28,7 @@ It is often used with structural directives like *ngIf , *ngFor , and *ngSwitch.
   </app-head> -->
 
 
-<div class="form-area">
+<!-- <div class="form-area">
   <h1>Post form</h1> 
   <br><br>
   <input type="text" placeholder="Post Title" [(ngModel)] = "postTitle">
@@ -49,4 +49,26 @@ It is often used with structural directives like *ngIf , *ngFor , and *ngSwitch.
   <a [href]="postURL" target="_blank" [style.display]=" postURL ? 'block' : 'none' "> More Details </a>
 
 
- </div>
+ </div> -->
+
+ <form [formGroup]="regForm" class="form" (ngSubmit)="submit()">
+  <h5 class="text-primary"> Registration Form using Rective Forms</h5>
+  <div class="form-group">
+    <label>first Name</label> <br/>
+    <input type="text" formControlName="firstName" class="form-control"  >
+    <div class="text-danger" *ngIf="regForm.get('firstName')?.touched&& regForm.get
+    ('firstName')?.invalid || submitted&& regForm.get('firstName')?.invalid"> 
+    <div *ngIf="regForm.get('firstName')?.errors">
+
+      First Name is required
+    </div>
+    </div>
+    
+  </div>
+
+
+  <div class="actions">
+    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-warning" type="button" (click)="reset()">Reset</button>
+  </div>
+ </form>
