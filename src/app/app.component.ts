@@ -7,6 +7,7 @@ import { FormBuilder,FormGroup,  Validators } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  [x: string]: any;
 
   regForm!: FormGroup
   submitted=false;
@@ -19,8 +20,27 @@ export class AppComponent {
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
       confirmPassword:['',[Validators.required]],
+    },{
+      Validators: this.passwordMatchValidation
     }
+
+
+
   )
+
+  }
+
+  passwordMatchValidation(form: FormGroup){
+    const password = form.get('password');
+    const cPassword = form.get('confirmPassword');
+    if (password?.value !== cPassword?.value) {
+      return {
+        mismatch: true
+      }
+    }
+    else{
+      return null
+    }
 
   }
   submit() {
